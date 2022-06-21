@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../utils/constants.dart';
 class Background extends StatelessWidget {
   const Background({super.key});
 
@@ -9,13 +11,12 @@ class Background extends StatelessWidget {
       Container(
         height: double.infinity,
         width: double.infinity,
-        color: const Color.fromRGBO(255, 211, 55, 1),
+        color:  AppColors.mainYellow,
       ),
       Positioned(
         right: 10.w,
         child: Image.asset(
           'assets/images/grouped_line.png',
-          
         ),
       ),
     ]);

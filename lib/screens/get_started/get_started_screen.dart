@@ -6,6 +6,8 @@ import 'package:testui_interview/screens/get_started/components/background.dart'
 import 'package:testui_interview/screens/get_started/components/ellipse.dart';
 import 'package:testui_interview/screens/get_started/components/page_view_item.dart';
 
+import '../../utils/constants.dart';
+
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
 
@@ -43,7 +45,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                     count: 4,
                     effect: const JumpingDotEffect(
                       dotColor: Colors.white,
-                      activeDotColor: Color.fromRGBO(2, 19, 30, 1),
+                      activeDotColor: AppColors.dotColor,
                       dotWidth: 6,
                       dotHeight: 6,
                     ), // your preferred effect
@@ -94,7 +96,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   Text("Don’t have any account?",
                       style: TextStyle(
                           fontSize: 14.sp,
-                          color: const Color.fromRGBO(150, 130, 61, 1),
+                          color: AppColors.greyishYellow,
                           fontWeight: FontWeight.w600)),
                   const SizedBox(
                     width: 5,

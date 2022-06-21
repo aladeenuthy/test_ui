@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../utils/constants.dart';
 class PageViewItem extends StatelessWidget {
   const PageViewItem({super.key});
 
@@ -17,7 +19,7 @@ class PageViewItem extends StatelessWidget {
         Text('Buying Electric bikes just got a lot easier, Try us today.' ,textAlign: TextAlign.center, style:
         Theme.of(context).textTheme.bodyText1?.copyWith(
           fontWeight: FontWeight.w400,
-          color: const Color.fromRGBO(150, 130, 61, 1)
+          color:  AppColors.greyishYellow
         )
     ),
         SizedBox(height: 20.h),

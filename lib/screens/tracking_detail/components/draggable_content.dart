@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../utils/constants.dart';
 
 class DraggableContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -39,8 +40,7 @@ class DraggableContent extends StatelessWidget {
                   Text(
                     "Estimate arrives in",
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                        color: const Color.fromRGBO(122, 128, 157, 1),
-                        
+                        color: AppColors.listTileSubtitleColor,
                         fontWeight: FontWeight.w400),
                   ),
                   SizedBox(
@@ -49,7 +49,7 @@ class DraggableContent extends StatelessWidget {
                   Text(
                     "2h 40m",
                     style: TextStyle(
-                        color: const Color.fromRGBO(46, 62, 92, 1),
+                        color: AppColors.smallHeaderColor,
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w800),
                   ),
@@ -81,20 +81,20 @@ class DraggableContent extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(24),
-                color: const Color.fromRGBO(255, 211, 55, 1)),
+                color: AppColors.mainYellow),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildCardItem("Sukabumi, Indonesia", "No receipt : SCP6653728497", context),
+                _buildCardItem("Sukabumi, Indonesia",
+                    "No receipt : SCP6653728497", context),
                 SizedBox(
                   height: 16.h,
                 ),
-                buildCardItem(
-                    "2,50 USD", "Postal fee", context),
+                _buildCardItem("2,50 USD", "Postal fee", context),
                 SizedBox(
                   height: 16.h,
                 ),
-                buildCardItem("Bali, Indonesia", "Parcel, 24kg", context),
+                _buildCardItem("Bali, Indonesia", "Parcel, 24kg", context),
               ],
             ),
           ),
@@ -104,7 +104,7 @@ class DraggableContent extends StatelessWidget {
           Text(
             "History",
             style: TextStyle(
-                color: const Color.fromRGBO(46, 62, 92, 1),
+                color: AppColors.smallHeaderColor,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600),
           ),
@@ -112,32 +112,41 @@ class DraggableContent extends StatelessWidget {
             height: 24.h,
           ),
           Container(
-            child:  Stack(
+            child: Stack(
+              children: [
+                Container(
+                  color: const Color.fromRGBO(223, 230, 237, 1),
+                  margin: EdgeInsets.only(left: 32.w, top: 12.h),
+                  height: 300.h,
+                  width: 3,
+                ),
+                Column(
                   children: [
-                    Container(
-                      color: const Color.fromRGBO(223, 230, 237, 1),
-                      margin: EdgeInsets.only(left: 42.h, top: 10),
-                      height: 300.h,
-                      width: 3,
+                    buildTile("in Delivery", "Bali Indonesia", "00.00 PM",
+                        AppColors.mainYellow, 'assets/images/bus.png', context),
+                    SizedBox(
+                      height: 32.h,
                     ),
-                    Column(
-                      children: [
-                        buildTile("in Delivery","Bali Indonesia", "00.00 PM", const Color.fromRGBO(255, 211, 55, 1), 'assets/images/bus.png', context),
-                        SizedBox(
-                          height: 32.h,
-                        ),
-                        buildTile("Transit - Sending City", "Jakarta Indonesia", "21.00 PM",
-                            const Color.fromRGBO(241, 246, 251, 1) , 'assets/images/mail.png', context),
-                        SizedBox(
-                          height: 32.h,
-                        ),
-                        buildTile("Send Form Sukabumi", "Sukabumi Indonesia", "19.00 PM",
-                            const Color.fromRGBO(241, 246, 251, 1), 'assets/images/box.png', context),
-                      ],
+                    buildTile(
+                        "Transit - Sending City",
+                        "Jakarta Indonesia",
+                        "21.00 PM",
+                        AppColors.lightGrey,
+                        'assets/images/mail.png',
+                        context),
+                    SizedBox(
+                      height: 32.h,
                     ),
+                    buildTile(
+                        "Send Form Sukabumi",
+                        "Sukabumi Indonesia",
+                        "19.00 PM",
+                        AppColors.lightGrey,
+                        'assets/images/box.png',
+                        context),
                   ],
-                
-              
+                ),
+              ],
             ),
           ),
         ]),
@@ -145,15 +154,15 @@ class DraggableContent extends StatelessWidget {
     );
   }
 }
-Widget buildCardItem(String title, String subtitle, BuildContext context) {
+
+Widget _buildCardItem(String title, String subtitle, BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         title,
         style: Theme.of(context).textTheme.headline2?.copyWith(
-            color: const Color.fromRGBO(46, 62, 92, 1),
-            fontWeight: FontWeight.w600),
+            color: AppColors.smallHeaderColor, fontWeight: FontWeight.w600),
       ),
       SizedBox(
         height: 8.h,
@@ -161,8 +170,7 @@ Widget buildCardItem(String title, String subtitle, BuildContext context) {
       Text(
         subtitle,
         style: Theme.of(context).textTheme.bodyText2?.copyWith(
-            color: const Color.fromRGBO(150, 130, 61, 1),
-            fontWeight: FontWeight.w400),
+            color: AppColors.greyishYellow, fontWeight: FontWeight.w400),
       ),
       SizedBox(
         height: 16.h,
@@ -187,20 +195,18 @@ Widget buildTile(String title, String subtitle, String trailing,
     title: Text(
       title,
       style: Theme.of(context).textTheme.bodyText1?.copyWith(
-            color: const Color.fromRGBO(30, 51, 84, 1),
+            color: AppColors.listTileTitleColor,
           ),
     ),
     subtitle: Text(
       subtitle,
       style: Theme.of(context).textTheme.bodyText1?.copyWith(
-          color: const Color.fromRGBO(122, 128, 157, 1),
-          fontWeight: FontWeight.w400),
+          color: AppColors.listTileSubtitleColor, fontWeight: FontWeight.w400),
     ),
     trailing: Text(
       trailing,
       style: Theme.of(context).textTheme.bodyText1?.copyWith(
-          color: const Color.fromRGBO(122, 128, 157, 1),
-          fontWeight: FontWeight.w400),
+          color: AppColors.listTileSubtitleColor, fontWeight: FontWeight.w400),
     ),
   );
 }

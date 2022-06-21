@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:testui_interview/screens/tracking_detail/components/map_view.dart';
 
+import '../../utils/constants.dart';
 import 'components/draggable_content.dart';
 
 class TrackingDetailScreen extends StatefulWidget {
@@ -18,22 +19,27 @@ class _TrackingDetailScreenState extends State<TrackingDetailScreen> {
   var blur = false;
   @override
   void initState() {
-    
     super.initState();
     controller.addListener(() {
-      if (controller.pixels > ScreenUtil.defaultSize.height * 0.5 && !blur) {
+      if (controller.pixels > (ScreenUtil.defaultSize.height * 0.5) && !blur) {
         setState(() {
           blur = true;
         });
         return;
       }
-      if (controller.pixels < ScreenUtil.defaultSize.height * 0.5 && blur) {
+      if (controller.pixels < (ScreenUtil.defaultSize.height * 0.5) && blur) {
         setState(() {
           blur = false;
         });
         return;
       }
     });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -84,14 +90,18 @@ class MainBody extends StatelessWidget {
                     icon: const Icon(Icons.arrow_back_ios_new),
                     color: const Color.fromRGBO(59, 74, 102, 1),
                   ),
-                  const Spacer(flex: 1,),
+                  const Spacer(
+                    flex: 1,
+                  ),
                   Text(
                     "Tracking Details",
                     style: Theme.of(context).textTheme.headline1?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: const Color.fromRGBO(9, 44, 76, 1)),
                   ),
-                  const Spacer(flex: 2,),
+                  const Spacer(
+                    flex: 2,
+                  ),
                 ],
               ),
               SizedBox(
@@ -101,7 +111,7 @@ class MainBody extends StatelessWidget {
                 width: double.infinity,
                 padding: EdgeInsets.all(16.h),
                 decoration: BoxDecoration(
-                    color: const Color.fromRGBO(255, 211, 55, 1),
+                    color: AppColors.mainYellow,
                     borderRadius: BorderRadius.circular(46)),
                 child: Container(
                   alignment: Alignment.center,

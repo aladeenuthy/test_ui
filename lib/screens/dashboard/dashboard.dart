@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:testui_interview/screens/dashboard/components/order.dart';
 import 'package:testui_interview/screens/dashboard/components/track_package.dart';
+import 'package:testui_interview/utils/constants.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -12,7 +13,6 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-  final pageController = PageController();
   var initialPage = 0;
   void switchPage() {
     setState(() {
@@ -20,16 +20,9 @@ class _DashBoardState extends State<DashBoard> {
     });
   }
 
-  
   @override
   Widget build(BuildContext context) {
-    var inPages = [
-      Order(
-        switchPage: switchPage
-      ),
-      const TrackPage()
-    ];
-
+    var inPages = [Order(switchPage: switchPage), const TrackPage()];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -51,14 +44,13 @@ class _DashBoardState extends State<DashBoard> {
                         )),
                     Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromRGBO(241, 246, 251, 1),
+                          color: AppColors.lightGrey,
                           borderRadius: BorderRadius.circular(12.r)),
                       child: IconButton(
                           onPressed: () {},
-                          icon: Lottie.asset(
-                            'assets/json/lottie1.json',
+                          icon: Image.asset(
+                            'assets/images/bell.png',
                             height: 30,
-
                           )),
                     )
                   ]),
@@ -68,12 +60,11 @@ class _DashBoardState extends State<DashBoard> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
-              child: Text("Hello Good Morning!",
-                  style:
-                      Theme.of(context)
+              child: Text("Hello good Morning!",
+                  style: Theme.of(context)
                       .textTheme
                       .headline1
-                      ?.copyWith( fontWeight: FontWeight.w700)),
+                      ?.copyWith(fontWeight: FontWeight.w700)),
             ),
             SizedBox(
               height: 40.h,
@@ -87,7 +78,7 @@ class _DashBoardState extends State<DashBoard> {
         child: BottomNavigationBar(
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            backgroundColor: const Color.fromRGBO(241, 246, 251, 1),
+            backgroundColor: AppColors.lightGrey,
             elevation: 0,
             currentIndex: 0,
             items: [
@@ -96,23 +87,36 @@ class _DashBoardState extends State<DashBoard> {
                     'assets/json/lottie2.json',
                     width: 19.w,
                     height: 35.h,
-                    fit: BoxFit.cover,repeat: false,
-                  
+                    fit: BoxFit.cover,
+                    repeat: false,
                   ),
                   label: ''),
               BottomNavigationBarItem(
                   icon: Lottie.asset(
-                    fit: BoxFit.cover,repeat: false,
-                    'assets/json/lottie3.json', width: 19.w,
-                    height: 35.h), label: ''),
+                      fit: BoxFit.cover,
+                      repeat: false,
+                      'assets/json/lottie3.json',
+                      width: 19.w,
+                      height: 35.h),
+                  label: ''),
               BottomNavigationBarItem(
-                  icon: Lottie.asset('assets/json/lottie4.json', width: 19.w, height: 35.h, fit: BoxFit.cover,
+                  icon: Lottie.asset(
+                    'assets/json/lottie4.json',
+                    width: 19.w,
+                    height: 35.h,
+                    fit: BoxFit.cover,
                     repeat: false,
-                  ), label: ''),
+                  ),
+                  label: ''),
               BottomNavigationBarItem(
-                  icon: Lottie.asset('assets/json/lottie5.json', width: 19.w, height: 35.h, fit: BoxFit.cover,
+                  icon: Lottie.asset(
+                    'assets/json/lottie5.json',
+                    width: 19.w,
+                    height: 35.h,
+                    fit: BoxFit.cover,
                     repeat: false,
-                  ), label: '')
+                  ),
+                  label: '')
             ]),
       ),
     );

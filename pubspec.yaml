@@ -63,7 +63,6 @@ flutter:
   assets:
     - assets/images/bell.png
     - assets/images/bike.png
-    - assets/images/biker_ninja.png
     - assets/images/box.png
     - assets/images/bus.png
     - assets/images/get_started_image.png
@@ -73,18 +72,15 @@ flutter:
     - assets/images/map_line.png
     - assets/images/map.png
     - assets/images/Markey.png
-    - assets/images/line1.png
-    - assets/images/line2.png
-    - assets/images/line3.png
     - assets/images/human_biker.png
     - assets/images/settings.png
     - assets/images/google_logo.png
     - assets/images/grouped_line.png
-    - assets/json/lottie1.json
     - assets/json/lottie2.json
     - assets/json/lottie3.json
     - assets/json/lottie4.json
     - assets/json/lottie5.json
+    - assets/images/moving_bike.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:testui_interview/screens/tracking_detail/tracking_detail_sceen.dart';
 
+import '../../../utils/constants.dart';
+
 class TrackCard extends StatelessWidget {
   const TrackCard({super.key});
 
@@ -11,7 +13,7 @@ class TrackCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32),
-          color: const Color.fromRGBO(255, 211, 55, 1)),
+          color: AppColors.mainYellow),
       child: Stack(children: [
         Positioned(
           right: 10.w,
@@ -38,7 +40,7 @@ class TrackCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1?.copyWith(
                     
                     fontWeight: FontWeight.w400,
-                    color: const Color.fromRGBO(150, 130, 61, 1))),
+                    color: AppColors.greyishYellow)),
             SizedBox(
               height: 29.h,
             ),

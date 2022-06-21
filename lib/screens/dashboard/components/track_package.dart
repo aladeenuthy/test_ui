@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:testui_interview/screens/dashboard/components/track_card.dart';
+
+import '../../../utils/constants.dart';
+
 class TrackPage extends StatelessWidget {
   const TrackPage({super.key});
 
@@ -11,48 +14,54 @@ class TrackPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        const TrackCard(),
-        SizedBox(height: 40.h,),
-        Text(
+          const TrackCard(),
+          SizedBox(
+            height: 40.h,
+          ),
+          Text(
             "History",
             style: Theme.of(context).textTheme.headline2?.copyWith(
-                color: const Color.fromRGBO(46, 62, 92, 1),
-                fontWeight: FontWeight.w600),
+                color: AppColors.smallHeaderColor, fontWeight: FontWeight.w600),
           ),
           SizedBox(
             height: 16.h,
           ),
-          _buildTile("SCP9374826473", "In the process", 'assets/images/bus.png', context)
-          ,
+          _buildTile("SCP9374826473", "In the process", 'assets/images/bus.png',
+              context),
           SizedBox(
             height: 24.h,
           ),
-          _buildTile("SCP6653728497", "In delivery", 'assets/images/box.png', context)
-      ],),
+          _buildTile(
+              "SCP6653728497", "In delivery", 'assets/images/box.png', context)
+        ],
+      ),
     );
   }
 }
-Widget _buildTile(String title, String subtitle,
-    String imageUrl, BuildContext context) {
+
+Widget _buildTile(
+    String title, String subtitle, String imageUrl, BuildContext context) {
   return ListTile(
     contentPadding: EdgeInsets.zero,
     leading: CircleAvatar(
-      backgroundColor: const Color.fromRGBO(241, 246, 251, 1),
+      backgroundColor: AppColors.lightGrey,
       radius: 30,
       child: Image.asset(imageUrl),
     ),
     title: Text(
       title,
       style: Theme.of(context).textTheme.bodyText1?.copyWith(
-          color: const Color.fromRGBO(30, 51, 84, 1),
+            color: AppColors.listTileTitleColor,
           ),
     ),
     subtitle: Text(
       subtitle,
       style: Theme.of(context).textTheme.bodyText1?.copyWith(
-          color: const Color.fromRGBO(122, 128, 157, 1),
-          fontWeight: FontWeight.w400),
+          color: AppColors.listTileSubtitleColor, fontWeight: FontWeight.w400),
     ),
-    trailing: const Icon(Icons.arrow_forward_ios, color: Color.fromRGBO(30, 51, 84, 1),),
+    trailing: const Icon(
+      Icons.arrow_forward_ios,
+      color: AppColors.listTileTitleColor,
+    ),
   );
 }
